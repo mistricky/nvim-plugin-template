@@ -17,5 +17,12 @@ jobs:
       - name: Install commit message convention lib
         run: npm i commitlint-config-wizardoc -D
 
-      - name: Check lint name convention
+      - name: Check commit message
         uses: wagoid/commitlint-github-action@v4
+
+      - name: Check code style
+        uses: JohnnyMorganz/stylua-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest 
+          args: --check .
