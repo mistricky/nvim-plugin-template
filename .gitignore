@@ -1,0 +1,8 @@
+# Lua
+/luarocks
+/lua
+/lua_modules
+/.luarocks
+
+# OS
+.DS_Store
