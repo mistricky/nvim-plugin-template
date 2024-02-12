@@ -1,0 +1,21 @@
+name: Lint
+
+on: push
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Install commit message convention lib
+        run: npm i commitlint-config-wizardoc -D
+
+      - name: Check lint name convention
+        uses: wagoid/commitlint-github-action@v4

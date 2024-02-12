@@ -1,4 +1,4 @@
-name: 'Release'
+name: Release
 
 on:
   push:
@@ -15,7 +15,7 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' 
+          python-version: "3.11"
 
       - name: Replace template
         run: python3 scripts/replace-template.py
@@ -23,7 +23,7 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
-          message: '[Update] apply template'
+          message: "[Update] apply template"
 
       - name: Read version from project config
         id: read_toml
@@ -45,4 +45,3 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           generateReleaseNotes: true
-        
